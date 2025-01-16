@@ -17,4 +17,9 @@ export class Customer {
     getAdress(){
         return `Miasto: ${this.city}, Ulica: ${this.street}, Numer Budynku: ${this.houseNumber}`
     }
+
+    deseralize(input: any): Customer{
+        Object.assign(this, input);
+        return this;
+    }
 }

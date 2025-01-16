@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Customer } from '../../models/customer'
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-form',
@@ -22,9 +23,20 @@ export class CustomerFormComponent {
   // in 
   // out
   // Save data on form
-  save(){
+  // Checkbox wrapper
+  // Nickname
+  // Comment
+  // Bought or not
+  // email
+  save(ngForm: NgForm){
     console.log(this.customer);
-    this.customerService.addCustomer(this.customer);
-    this.router.navigateByUrl('/invoice/customer-list');
+    console.log(ngForm.valid)
+    if(ngForm.valid){
+    this.customerService.addCustomer(this.customer).
+    subscribe((data: any) => {
+      console.log(data);
+      this.router.navigateByUrl('/invoice/customer-list');
+    });
+    }
   }
 }

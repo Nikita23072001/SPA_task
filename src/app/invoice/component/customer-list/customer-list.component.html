@@ -1,4 +1,6 @@
 <app-customer-list-element 
     *ngFor="let customer of customersList"
-    [customer]="customer">
-</app-customer-list-element>
+    [customer]="customer"
+    (deletedCustomerEvent)="deletedCustomerEvent($event)"
+    ></app-customer-list-element>
+<button (click)="redirect()" class="btn btn-danger">Wroc</button>

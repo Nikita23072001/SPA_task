@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
 import { Customer } from '../../models/customer'
@@ -10,13 +10,32 @@ import { Customer } from '../../models/customer'
   styleUrl: './customer-list.component.scss'
 })
 
-export class CustomerListComponent {
+export class CustomerListComponent implements OnInit, OnDestroy{
     customersList: Customer[] = [];
 
     constructor(
         private customerService: CustomerService,
         private router: Router
       ){ 
-        this.customersList = this.customerService.getCustomers();
+        
+       }
+
+       ngOnInit(){
+        this.customerService.getCustomers().subscribe((data: Customer[]) => {
+          this.customersList = data;
+        });
+       }
+       ngOnDestroy(){
+          console.log("Zamykam komponent!")
+       }
+       redirect(){
+        this.router.navigateByUrl('/invoice/customer-form')
+       }
+       deletedCustomerEvent(customer: Customer){
+        console.log("kasuje", customer);
+        this.customerService.removeCustomer(customer);
+        this.customerService.getCustomers().subscribe((data: Customer[]) => {
+          this.customersList = data;
+        });;
        }
 }

@@ -1,1 +1,2 @@
 <div [ngStyle]="{'color': !customer.isActive ? 'red' : ''}"> {{ customer.getData() }}</div>
+<button (click)="onDelete(customer)" class="btn btn-danger">usun</button>

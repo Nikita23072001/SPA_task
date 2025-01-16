@@ -1,0 +1,19 @@
+{
+  "customers": [
+    {
+      "name": "Client Stworzony przez Nikitę",
+      "nip": "1234",
+      "id": "e92d"
+    },
+    {
+      "id": "",
+      "name": "1",
+      "nip": 2,
+      "city": "",
+      "street": "",
+      "houseNumber": "",
+      "postalCode": "",
+      "isActive": true
+    }
+  ]
+}

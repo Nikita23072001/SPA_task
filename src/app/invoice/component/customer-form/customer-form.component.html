@@ -1,14 +1,14 @@
 <p>customer-form works!</p> 
 
 {{ customer|json }} asasa
-            <form (ngSubmit)="save()">
+            <form (ngSubmit)="save(f)" #f="ngForm">
               <div class="mb-3 content-center">
                 <label for="company-name" class="form-label">Company name</label>
-                <input type="text" class="form-control"  [(ngModel)]="customer.name" name="name" id="company-name">
+                <input type="text" class="form-control" [(ngModel)]="customer.name" name="name" id="company-name" required>
               </div>
               <div class="mb-3">
                 <label for="nip" class="form-label" name="nip">NIP</label>
-                <input type="number" class="form-control" id="nip" required>
+                <input type="number" class="form-control"  [(ngModel)]="customer.nip" name="nip" id="nip" required>
               </div>
               <div class="mb-3">
                   <label for="city" class="form-label">City</label>
@@ -43,5 +43,5 @@
                 <label class="form-check-label" for="active">Active</label>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary" >Save</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button>
         </form>
