@@ -1,0 +1,1 @@
+Strona z opiniami odnośnie konkretnych produktów. np. mam produkty w webscraperze to mogę json wykorzystać
