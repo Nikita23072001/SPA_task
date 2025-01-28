@@ -1,7 +1,7 @@
-import { Customer } from './customer';
+import { Laptop } from './laptop';
 
-describe('Customer', () => {
+describe('Laptop', () => {
   it('should create an instance', () => {
-    expect(new Customer()).toBeTruthy();
+    expect(new Laptop()).toBeTruthy();
   });
 });

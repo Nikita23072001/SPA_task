@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Customer } from '../../models/customer'
+import { Laptop } from '../../models/laptop'
 
 @Component({
   selector: 'app-customer-list-element',
@@ -10,13 +10,13 @@ import { Customer } from '../../models/customer'
 export class CustomerListElementComponent {
 
   @Input()
-  customer: Customer = new Customer();
+  customer: Laptop = new Laptop();
 
   @Output()
-  deletedCustomerEvent = new EventEmitter<Customer>();
+  deletedCustomerEvent = new EventEmitter<Laptop>();
 
-  onDelete(customer: Customer){
-    console.log('kasuje klienta', this.customer.nip)
+  onDelete(customer: Laptop){
+    console.log('kasuje klienta', this.customer.id)
     this.deletedCustomerEvent.emit(customer);
   }
 }

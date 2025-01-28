@@ -1,19 +1,105 @@
 {
   "customers": [
     {
-      "name": "Client Stworzony przez Nikitę",
+      "name": "Stworzony klient",
       "nip": "1234",
-      "id": "e92d"
+      "id": "e92d",
+      "type": "1",
+      "isActive": true
     },
     {
-      "id": "",
+      "id": "1234",
       "name": "1",
       "nip": 2,
       "city": "",
       "street": "",
       "houseNumber": "",
       "postalCode": "",
+      "type": "2",
       "isActive": true
+    },
+    {
+      "id": "456",
+      "name": "asasa",
+      "nip": 213124,
+      "city": "",
+      "street": "",
+      "houseNumber": "",
+      "postalCode": "",
+      "type": "3",
+      "isActive": false
+    },
+    {
+      "id": "",
+      "companyName": "asasa",
+      "ram": 32123,
+      "cpu": "321das",
+      "gpu": "sdaasd",
+      "ssd": null,
+      "nickname": "asdasd",
+      "comment": "",
+      "type": "1",
+      "bought": true
+    },
+    {
+      "id": "",
+      "companyName": "asasa",
+      "ram": 123,
+      "cpu": "sdf",
+      "gpu": "asdas",
+      "ssd": null,
+      "nickname": "asdasd",
+      "comment": "sadasdasd",
+      "type": "1",
+      "bought": true
+    },
+    {
+      "id": "",
+      "companyName": "asasa",
+      "ram": "",
+      "cpu": "",
+      "gpu": "",
+      "ssd": "",
+      "nickname": "",
+      "comment": "",
+      "type": "1",
+      "bought": false
+    },
+    {
+      "id": "",
+      "companyName": "Lenovo",
+      "ram": 16,
+      "cpu": "I7",
+      "gpu": "GTX 1650",
+      "ssd": 512,
+      "nickname": "Intensive_Nick",
+      "comment": "Ten komputer nie jest dobry",
+      "type": "1",
+      "bought": true
+    },
+    {
+      "id": "",
+      "companyName": "Lenovo",
+      "ram": 16,
+      "cpu": "I7",
+      "gpu": "GTX 1650",
+      "ssd": 512,
+      "nickname": "Intensive_Nick",
+      "comment": "Nie jest to dobre",
+      "type": "1",
+      "bought": true
+    },
+    {
+      "id": "",
+      "companyName": "asasa",
+      "ram": 323131,
+      "cpu": "asda",
+      "gpu": "aerad",
+      "ssd": null,
+      "nickname": "asd",
+      "comment": "dad",
+      "type": "1",
+      "bought": true
     }
   ]
 }

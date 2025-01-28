@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
-import { Router } from '@angular/router';
-import { Customer } from '../../models/customer'
+import { ActivatedRoute, Router } from '@angular/router';
+import { Laptop } from '../../models/laptop'
 
 @Component({
   selector: 'app-customer-list',
@@ -11,18 +11,21 @@ import { Customer } from '../../models/customer'
 })
 
 export class CustomerListComponent implements OnInit, OnDestroy{
-    customersList: Customer[] = [];
+    laptopList: Laptop[] = [];
 
     constructor(
         private customerService: CustomerService,
-        private router: Router
+        private router: Router,
+        private activatedRouter: ActivatedRoute
       ){ 
         
        }
+      //  type: string;
 
        ngOnInit(){
-        this.customerService.getCustomers().subscribe((data: Customer[]) => {
-          this.customersList = data;
+        // let index = this.activatedRouter.snapshot.params['value']// static to dynamic
+        this.customerService.getCustomers('1').subscribe((data: Laptop[]) => {
+          this.laptopList = data;
         });
        }
        ngOnDestroy(){
@@ -31,11 +34,11 @@ export class CustomerListComponent implements OnInit, OnDestroy{
        redirect(){
         this.router.navigateByUrl('/invoice/customer-form')
        }
-       deletedCustomerEvent(customer: Customer){
+       deletedCustomerEvent(customer: Laptop){
         console.log("kasuje", customer);
-        this.customerService.removeCustomer(customer);
-        this.customerService.getCustomers().subscribe((data: Customer[]) => {
-          this.customersList = data;
-        });;
+        this.customerService.removeCustomer(customer).subscribe(() => {}) ;
+        this.customerService.getCustomers('1').subscribe((data: Laptop[]) => {
+          this.laptopList = data;
+        });
        }
 }

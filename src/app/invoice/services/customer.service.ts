@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Customer } from '../models/customer'
+import { Laptop } from '../models/laptop'
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CustomerListComponent } from '../component/customer-list/customer-list.component';
@@ -7,28 +7,29 @@ import { CustomerListComponent } from '../component/customer-list/customer-list.
 @Injectable()
 export class CustomerService {
 
-  private customersList: Customer[] = [];
+  private customersList: Laptop[] = [];
   private baseUrl: string = 'http://localhost:3000/customers'
 
   constructor(private httpClient: HttpClient) {   }
 
-  addCustomer(customer: Customer){
+  addCustomer(customer: Laptop){
     return this.httpClient.post(this.baseUrl, customer);
   }
 
-  getCustomers(): Observable<Customer[]> {
+  //customer.type to be added
+  getCustomers(type: any): Observable<Laptop[]> {
     return this.httpClient
-    .get<Customer[]>(this.baseUrl)
+    .get<Laptop[]>(this.baseUrl+'?type='+type)
     .pipe(
-      map((customers: Customer[]) => 
-        customers.map((customer: Customer) => new Customer().deseralize(customer)
+      map((customers: Laptop[]) => 
+        customers.map((customer: Laptop) => new Laptop().deseralize(customer)
       )
     )
     )
   }
 
-  removeCustomer(customer: Customer): Observable<Customer>{
-    return this.httpClient.delete<Customer>(this.baseUrl+'/'+customer.id)
+  removeCustomer(customer: Laptop): Observable<Laptop>{
+    return this.httpClient.delete<Laptop>(this.baseUrl+'/'+customer.id)
   }
 
 }

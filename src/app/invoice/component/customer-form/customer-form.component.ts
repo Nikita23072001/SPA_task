@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Customer } from '../../models/customer'
+import { Laptop } from '../../models/laptop'
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Smartphone } from '../../models/smartphone';
 
 @Component({
   selector: 'app-customer-form',
@@ -11,13 +12,14 @@ import { NgForm } from '@angular/forms';
   styleUrl: './customer-form.component.scss'
 })
 export class CustomerFormComponent {
-  customer: Customer = new Customer();
+  laptop: Laptop = new Laptop();
+  smartphone: Smartphone = new Smartphone();
 
   constructor(
     private customerService: CustomerService,
     private router: Router
   ){ 
-    this.customer.name ='asasa'
+    this.laptop.companyName ='asasa'
    }
 
   // in 
@@ -29,10 +31,10 @@ export class CustomerFormComponent {
   // Bought or not
   // email
   save(ngForm: NgForm){
-    console.log(this.customer);
+    console.log(this.laptop);
     console.log(ngForm.valid)
     if(ngForm.valid){
-    this.customerService.addCustomer(this.customer).
+    this.customerService.addCustomer(this.laptop).
     subscribe((data: any) => {
       console.log(data);
       this.router.navigateByUrl('/invoice/customer-list');
