@@ -3,6 +3,8 @@ import { Laptop } from '../models/laptop'
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CustomerListComponent } from '../component/customer-list/customer-list.component';
+import { Smartphone } from '../models/smartphone';
+import { Monitor } from '../models/monitor';
 
 @Injectable()
 export class CustomerService {
@@ -12,24 +14,32 @@ export class CustomerService {
 
   constructor(private httpClient: HttpClient) {   }
 
-  addCustomer(customer: Laptop){
+  addCustomer(customer: Laptop | Smartphone | Monitor): Observable<any> {
     return this.httpClient.post(this.baseUrl, customer);
   }
 
   //customer.type to be added
-  getCustomers(type: any): Observable<Laptop[]> {
+  getCustomers(type: string): Observable<Laptop[] | Smartphone[] | Monitor[]> {
     return this.httpClient
-    .get<Laptop[]>(this.baseUrl+'?type='+type)
-    .pipe(
-      map((customers: Laptop[]) => 
-        customers.map((customer: Laptop) => new Laptop().deseralize(customer)
-      )
-    )
-    )
+        .get<any[]>(`${this.baseUrl}?type=${type}`)
+        .pipe(
+            map((customers: any[]) => {
+                if (type === '1') {
+                    return customers.map((customer: any) => new Laptop().deseralize(customer));
+                } else if (type === '2') {
+                    return customers.map((customer: any) => new Smartphone().deseralize(customer));
+                } else if (type === '3') {
+                    return customers.map((customer: any) => new Monitor().deseralize(customer));
+                } else {
+                  return [];
+              }
+            })
+        );
   }
 
-  removeCustomer(customer: Laptop): Observable<Laptop>{
-    return this.httpClient.delete<Laptop>(this.baseUrl+'/'+customer.id)
+
+  removeCustomer(customer: Laptop | Smartphone | Monitor): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/${customer.id}`)
   }
 
 }

@@ -1,2 +1,18 @@
 <div [ngStyle]="{'color': !customer.bought ? 'red' : ''}"> {{ customer.getData() }}</div>
-<button (click)="onDelete(customer)" class="btn btn-danger">usun</button>
+<button (click)="deleteCustomer()" class="btn btn-danger">usun</button>
+
+<!-- NG0303: Can't bind to 'ngIfInstanceof' since it isn't a known property of 'div' (used in the '_CustomerListElementComponent' component template).
+1. If 'div' is an Angular component and it has the 'ngIfInstanceof' input, then verify that it is a part of an @NgModule where this component is declared.
+2. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. core.mjs:10927:12
+NG0303: Can't bind to 'ngIfInstanceof' since it isn't a known property of 'div' (used in the '_CustomerListElementComponent' component template).
+1. If 'div' is an Angular component and it has the 'ngIfInstanceof' input, then verify that it is a part of an @NgModule where this component is declared.
+2. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. core.mjs:10927:12
+NG0303: Can't bind to 'ngIfInstanceof' since it isn't a known property of 'div' (used in the '_CustomerListElementComponent' component template).
+1. If 'div' is an Angular component and it has the 'ngIfInstanceof' input, then verify that it is a part of an @NgModule where this component is declared.
+2. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. -->
+<!-- <div>
+    <p *ngIf="customer instanceof Laptop">{{ customer.getData() }}</p>
+    <p *ngIf="customer instanceof Smartphone">{{ customer.getData() }}</p>
+    <p *ngIf="customer instanceof Monitor">{{ customer.getData() }}</p>
+    <button (click)="deleteCustomer()">Delete</button>
+</div> -->

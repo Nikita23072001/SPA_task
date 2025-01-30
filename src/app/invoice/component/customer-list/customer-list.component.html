@@ -1,6 +1,34 @@
-<app-customer-list-element 
-    *ngFor="let laptop of laptopList"
-    [customer]="laptop"
-    (deletedCustomerEvent)="deletedCustomerEvent($event)"
-    ></app-customer-list-element>
-<button (click)="redirect()" class="btn btn-danger">Wroc</button>
+<!-- filepath: /C:/Users/nikit/OneDrive/Рабочий стол/Programming/PP5/my-app/src/app/invoice/component/customer-list/customer-list.component.html -->
+<div>
+    <select [(ngModel)]="selectedType" (change)="loadCustomers()">
+        <option value="1">Laptop</option>
+        <option value="2">Smartphone</option>
+        <option value="3">Monitor</option>
+    </select>
+
+    <div *ngIf="selectedType === '1'">
+        <app-customer-list-element 
+            *ngFor="let laptop of laptopList"
+            [customer]="laptop"
+            (deletedCustomerEvent)="deletedCustomerEvent($event)">
+        </app-customer-list-element>
+    </div>
+
+    <div *ngIf="selectedType === '2'">
+        <app-customer-list-element 
+            *ngFor="let smartphone of smartphoneList"
+            [customer]="smartphone"
+            (deletedCustomerEvent)="deletedCustomerEvent($event)">
+        </app-customer-list-element>
+    </div>
+
+    <div *ngIf="selectedType === '3'">
+        <app-customer-list-element 
+            *ngFor="let monitor of monitorList"
+            [customer]="monitor"
+            (deletedCustomerEvent)="deletedCustomerEvent($event)">
+        </app-customer-list-element>
+    </div>
+
+    <button (click)="redirect()" class="btn btn-danger">Wroc</button>
+</div>

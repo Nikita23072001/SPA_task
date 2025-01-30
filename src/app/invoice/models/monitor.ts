@@ -1,7 +1,7 @@
 export class Monitor {
     constructor(){}
 
-        id: string = "";
+        id: number = Math.floor(Math.random() * 999);
         companyName: string = "";
         size: number = 0;
         nickname: string="";
@@ -9,9 +9,9 @@ export class Monitor {
         type: string="";
         bought: boolean = false;
     
-    // getData(){
-    //     return `${this.companyName} ${this.size} ${this.nickname} ${this.comment} ${this.type} ${this.bought}`;
-    // }
+    getData(){
+        return `${this.companyName} ${this.size} ${this.nickname} ${this.comment} ${this.type} ${this.bought}`;
+    }
         
 
     deseralize(input: any): Monitor{

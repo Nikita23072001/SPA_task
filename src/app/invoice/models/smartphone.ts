@@ -1,18 +1,21 @@
 export class Smartphone {
-    constructor(){}
+    constructor(){
+    }
 
-        id: string = "";
+        id: number = Math.floor(Math.random());
         companyName: string = "";
+        cpu: string = "";
         ram: string = "";
-        cpu: string="";
+        ssd: string= "";
+        camera: string="";
         nickname: string="";
         comment: string="";
         type: string="";
         bought: boolean = false;
     
-    // getData(){
-    //     return `${this.companyName} ${this.ram} ${this.cpu} ${this.nickname} ${this.comment} ${this.type} ${this.bought}`;
-    // }
+    getData(){
+        return `${this.companyName} ${this.ram} ${this.ssd} ${this.nickname} ${this.comment} ${this.type} ${this.bought}`;
+    }
         
 
     deseralize(input: any): Smartphone{

@@ -1,9 +1,8 @@
 export class Laptop {
     constructor(){
-        this.id = ''; //random function
     }
 
-        id: string = "";
+        id: number = Math.floor(Math.random() * 999);
         companyName: string = "";
         ram: string = "";
         cpu: string="";
@@ -24,7 +23,3 @@ export class Laptop {
         return this;
     }
 }
-
-//3 formularze
-//3 structury danych
-//
