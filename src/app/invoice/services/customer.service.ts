@@ -10,7 +10,7 @@ import { Monitor } from '../models/monitor';
 export class CustomerService {
 
   private customersList: Laptop[] = [];
-  private baseUrl: string = 'http://localhost:3000/customers'
+  private baseUrl: string = '/customers'
 
   constructor(private httpClient: HttpClient) {   }
 

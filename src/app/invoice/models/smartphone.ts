@@ -2,7 +2,7 @@ export class Smartphone {
     constructor(){
     }
 
-        id: number = Math.floor(Math.random());
+        id: number = Math.floor(Math.random()*999);
         companyName: string = "";
         cpu: string = "";
         ram: string = "";
